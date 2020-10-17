@@ -1,21 +1,40 @@
-##########################################################
-# DO Community Playbook: Create file and define variable.
-##########################################################
+##########################################################################################################
+# DO Community Playbook: Create AWS EC2 instances, create file, define variable, delete AWS EC2 instances
+##########################################################################################################
 ---
-    - name: Create file
-      hosts: iaas
+    - name: Create AWS EC2 instances
+      hosts: localhost
+      gather_facts: False
       become: yes
-      vars_files:
-        - vars/default
-    
+
       roles:
-        - Create_file
-    
-    - name: Define variable
-      hosts: servers_all
-      become: yes
-      vars_files:
-        - vars/default
-     
-      roles:
-        - Define_content
+        - Create_AWS_EC2_instances
+
+#    - name: Create file
+#      hosts: iaas
+#      become: yes
+#      vars_files:
+#        - vars/default
+#    
+#      roles:
+#        - Create_file
+#    
+#    - name: Define variable
+#      hosts: servers_all
+#      become: yes
+#      vars_files:
+#        - vars/default
+#     
+#      roles:
+#        - Define_content
+
+#    - name: Delete AWS EC2 instances
+#      hosts: localhost
+#      become: yes
+#      gather_facts: False
+#      vars_files:
+#        - vars/default
+#
+#      roles:
+#        - Delete_AWS_EC2_instances
+      

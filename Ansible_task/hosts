@@ -34,23 +34,25 @@
 
 ## db-[99:101]-node.example.com
 
-[server_1]
-18.220.134.119
-[server_2]
-52.15.255.185
-[server_3]
-18.217.87.226
-[server_4]
-18.217.245.195
+local
 
-[iaas:children]
-server_1
-server_2
+#[server_1]
+#18.220.134.119
+#[server_2]
+#52.15.255.185
+#[server_3]
+#18.217.87.226
+#[server_4]
+#18.217.245.195
 
-[servers_all:children]
-server_1
-server_2
-server_3
-server_4
+#[iaas:children]
+#server_1
+#server_2
+
+#[servers_all:children]
+#server_1
+#server_2
+#server_3
+#server_4
 
 [new_servers]
