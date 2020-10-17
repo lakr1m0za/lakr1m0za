@@ -1,0 +1,8 @@
+---
+    # tasks file for create_file
+     - name: Create file
+       file:
+        path: /etc/iaac
+        force: no
+        state: touch
+        mode: 500
