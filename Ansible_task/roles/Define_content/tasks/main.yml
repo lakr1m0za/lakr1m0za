@@ -1,16 +1,9 @@
 ---
     # tasks file for define_content
-     - name: Verify file existing
-       stat: 
-          path: /etc/iaac
-       register: result
-    
      - name: Make variable
        shell: cat /etc/issue | tr -d 'n\\l'
        register: cat_issue
-       when: result.stat.exists
     
      - name: echo file
        debug:
          msg: "Content is {{cat_issue.stdout}}, hostname is {{ansible_hostname}} "
-       when: result.stat.exists
