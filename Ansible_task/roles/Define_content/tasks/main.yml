@@ -2,7 +2,7 @@
     # tasks file for define_content
      - name: Verify file existing
        stat: 
-          path: /etc/issue
+          path: /etc/iaac
        register: result
     
      - name: Make variable
