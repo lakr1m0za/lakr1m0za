@@ -1,2 +1,9 @@
 ---
 # vars file for Create_AWS_EC2_instances
+keypair: 495
+instance_type: t2.micro
+security_group: SSH
+image: ami-07efac79022b86107
+region: us-east-2
+vpc_subnet_id: subnet-bfb186c5
+count: 4

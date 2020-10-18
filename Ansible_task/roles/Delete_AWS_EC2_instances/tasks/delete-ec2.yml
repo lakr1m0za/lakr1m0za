@@ -6,4 +6,4 @@
         - name: Terminate instances that were previously launched
           ec2:
             state: 'absent'
-            instance_ids: 'i-041e34ae2b4e9b84a'
+            instance_id: 'i-00470c16178632f94'

@@ -1,0 +1,2 @@
+---
+    - include_tasks: delete-ec2.yml
