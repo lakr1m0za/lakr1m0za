@@ -1,0 +1,25 @@
+---
+  - name: Provision an EC2 Instance
+    ec2:
+      key_name: 495
+      group: SSH
+      instance_type: t2.micro
+      image: ami-07efac79022b86107
+      count: 1
+      wait: true
+      region: us-east-2
+      vpc_subnet_id: subnet-522ad339
+      assign_public_ip: yes
+    register: ec2
+
+  - name: Add new instance to host group
+    add_host:
+      hostname: "{{ item.public_ip }}"
+      groupname: new_servers
+    loop: "{{ ec2.instances }}"
+  - name: Wait for SSH to come up
+    delegate_to: "{{ item.public_dns_name }}"
+    wait_for_connection:
+      delay: 60
+      timeout: 320
+    loop: "{{ ec2.instances }}"
