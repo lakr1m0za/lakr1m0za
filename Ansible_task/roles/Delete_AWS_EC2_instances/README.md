@@ -6,6 +6,7 @@ Delete AWS EC2 instances.
 Requirements
 ------------
 
+Currently boto does not support the removal of Managed Policies, the module will error out if your user/group/role has managed policies when you try to do state=absent. They will need to be removed manually.
 It`s role for delete AWS EC2 instances.
 GL_DO_BC, lecture *, hometask.
 
