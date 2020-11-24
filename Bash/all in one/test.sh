@@ -1,6 +1,7 @@
 #!/bin/bash
 function checkNumber {
     regExp='^[+-]?([0-9]*\.?|[0-9]*\.[0-9]*)(\*\*|[\/*+-])([0-9]*\.?|[0-9]*\.[0-9]*)$'
+    #regExp='^[+-]?([0-9.]*)(\*\*|[\/*+-])([0-9.]*)$' #alternate variant
     if [[ $testNo =~ $regExp ]]
     then
         printf '%.1f' "$((10**3 * $testNo))e-3"
