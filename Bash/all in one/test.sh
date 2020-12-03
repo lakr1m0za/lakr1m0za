@@ -4,7 +4,7 @@ function checkNumber {
     #regExp='^[+-]?([0-9.]*)(\*\*|[\/*+-])([0-9.]*)$' #alternate variant
     if [[ $testNo =~ $regExp ]]
     then
-        printf '%.1f' "$((10**3 * $testNo))e-3"
+        LC_NUMERIC="en_US.UTF-8" printf '%d' "$((10**3 * $testNo))e-3"
         printf "\n"
         echo $((testNo))
         let check=1
