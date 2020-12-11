@@ -1,0 +1,17 @@
+---                                                                                                      
+                                                                                                         
+- name: Hardening user passwords                                                                         
+  hosts: all                                                                                             
+  become: yes                                                                                            
+                                                                                                         
+  tasks:                                                                                                 
+      - name: Install PAM                                                                                
+        apt:                                                                                             
+          name: libpam-pwquality                                                                         
+          state: latest                                                                                  
+                                                                                                         
+      - name: Set secure password policies                                                               
+        lineinfile:                                                                                      
+          path: /etc/pam.d/common-password                                                               
+          regexp: '^password'                                                                            
+          line: password requisite pam_pwquality.so retry=3 minlen=12 minclass=4 maxrepeat=2 ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-1 difok=4 reject_username enforce_for_root

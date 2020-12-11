@@ -1,0 +1,2 @@
+[default]                                                                                                
+ubuntu ansible_host=52.15.255.225 ansible_user=arty ansible_ssh_private_key_file=~/.ssh/495
